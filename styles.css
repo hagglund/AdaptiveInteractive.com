@@ -117,11 +117,13 @@ button:focus-visible {
 
 h1 {
   margin: 0;
-  max-width: 10ch;
-  font-size: clamp(2.65rem, 14vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.065em;
+  max-width: 100%;
+  font-size: clamp(2.15rem, 11vw, 4.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
   font-weight: 760;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .tagline {
@@ -164,10 +166,10 @@ h1 {
     text-align: center;
   }
 
-  h1 {
-    max-width: none;
-    margin-inline: auto;
-  }
+h1 {
+  max-width: 100%;
+  margin-inline: auto;
+}
 
   .tagline {
     margin-inline: auto;
