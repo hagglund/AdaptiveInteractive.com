@@ -118,12 +118,10 @@ button:focus-visible {
 h1 {
   margin: 0;
   max-width: 100%;
-  font-size: clamp(2.15rem, 11vw, 4.75rem);
+  font-size: clamp(2.4rem, 12vw, 4.75rem);
   line-height: 0.98;
   letter-spacing: -0.045em;
   font-weight: 760;
-  overflow-wrap: anywhere;
-  word-break: normal;
 }
 
 .tagline {
