@@ -48,3 +48,19 @@ Alternatively, open the **Ports** tab, find port `8080`, and click the globe/bro
 ## To-do later
 
 - Add an Open Graph image for Adaptive Interactive link previews once the visual branding direction is more settled.
+
+## Social preview testing
+
+After metadata changes are deployed, test the public site URL with social preview/debugging tools.
+
+Current public Azure Static Web Apps URL:
+
+```text
+https://green-island-079b5a81e.7.azurestaticapps.net/
+```
+
+Future custom domain URL:
+
+```text
+https://adaptiveinteractive.com/
+```
