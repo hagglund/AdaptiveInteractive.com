@@ -44,3 +44,7 @@ Alternatively, open the **Ports** tab, find port `8080`, and click the globe/bro
 ├── staticwebapp.config.json
 └── README.md
 ```
+
+## To-do later
+
+- Add an Open Graph image for Adaptive Interactive link previews once the visual branding direction is more settled.
