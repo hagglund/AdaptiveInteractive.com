@@ -48,6 +48,8 @@ Alternatively, open the **Ports** tab, find port `8080`, and click the globe/bro
 ## To-do later
 
 - Add an Open Graph image for Adaptive Interactive link previews once the visual branding direction is more settled.
+- Recommended og:image size should be verified with Copilot when ready to implement.
+- Add automated social metadata validation to GitHub Actions after the custom domain is stable.
 
 ## Social preview testing
 
