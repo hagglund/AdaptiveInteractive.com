@@ -1,0 +1,14 @@
+{
+  "name": "Adaptive Interactive Site",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.azurecli"
+      ]
+    }
+  }
+}
