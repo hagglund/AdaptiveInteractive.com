@@ -427,3 +427,15 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Background-video working files
+assets/video/source/
+assets/video/contact-sheets/
+assets/video/source-inventory.txt
+assets/video/*-segment.mp4
+assets/video/segments.txt
+
+# Generated video working files
+assets/video/adaptive-background-master.mp4
+assets/video/adaptive-background-preview.mp4
+save*/

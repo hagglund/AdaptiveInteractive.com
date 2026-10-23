@@ -8,31 +8,86 @@
 
   <meta
     name="description"
-    content="AdaptiveInteractive creates thoughtful, adaptive digital experiences."
+    content="Adaptive Interactive develops systems for aeronautics, space, military, intelligence, and policy applications."
   />
-  
+
   <meta property="og:title" content="Adaptive Interactive" />
   <meta
     property="og:description"
-    content="Adaptive digital experiences for people, systems, and ideas in motion."
+    content="Aeronautics, Space, Military, Intelligence, Policy"
   />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://adaptiveinteractive.com/" />
+  <meta
+    property="og:url"
+    content="https://adaptiveinteractive.com/"
+  />
 
   <meta name="theme-color" content="#2563eb" />
 
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <!-- <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" /> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="favicon.svg"
+  />
+
+  <!--
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="favicon-32x32.png"
+  />
+  -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700&amp;display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <div class="background-media" aria-hidden="true">
+    <video
+      class="video-background"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="assets/video/adaptive-background-poster.jpg"
+      tabindex="-1"
+    >
+      <source
+        src="assets/video/adaptive-background.webm"
+        type="video/webm"
+      />
+      <source
+        src="assets/video/adaptive-background.mp4"
+        type="video/mp4"
+      />
+    </video>
+
+    <div class="video-overlay"></div>
+  </div>
+
   <main class="site-card" aria-labelledby="site-title">
     <div class="theme-control">
-      <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+      >
         Dark mode
       </button>
     </div>
@@ -57,35 +112,63 @@
     const root = document.documentElement;
     const toggle = document.getElementById("theme-toggle");
     const savedTheme = localStorage.getItem("theme");
+    const colorScheme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
 
-    if (savedTheme) {
+    if (savedTheme === "dark" || savedTheme === "light") {
       root.dataset.theme = savedTheme;
     }
 
     function getCurrentTheme() {
-      if (root.dataset.theme === "dark") return "dark";
-      if (root.dataset.theme === "light") return "light";
+      if (root.dataset.theme === "dark") {
+        return "dark";
+      }
 
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+      if (root.dataset.theme === "light") {
+        return "light";
+      }
+
+      return colorScheme.matches ? "dark" : "light";
     }
 
-    function updateButtonLabel() {
+    function updateButton() {
       const currentTheme = getCurrentTheme();
-      toggle.textContent = currentTheme === "dark" ? "Light mode" : "Dark mode";
+      const nextTheme =
+        currentTheme === "dark" ? "light" : "dark";
+
+      toggle.textContent =
+        nextTheme === "dark" ? "Dark mode" : "Light mode";
+
+      toggle.setAttribute(
+        "aria-label",
+        `Switch to ${nextTheme} mode`
+      );
+
+      toggle.setAttribute(
+        "aria-pressed",
+        currentTheme === "dark" ? "true" : "false"
+      );
     }
 
     toggle.addEventListener("click", () => {
       const currentTheme = getCurrentTheme();
-      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+      const nextTheme =
+        currentTheme === "dark" ? "light" : "dark";
 
       root.dataset.theme = nextTheme;
       localStorage.setItem("theme", nextTheme);
-      updateButtonLabel();
+
+      updateButton();
     });
 
-    updateButtonLabel();
+    colorScheme.addEventListener("change", () => {
+      if (root.dataset.theme === "auto") {
+        updateButton();
+      }
+    });
+
+    updateButton();
   </script>
 </body>
 </html>
